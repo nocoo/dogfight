@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/brand/icon-rounded.png" alt="Dogfight logo" width="180" height="180" />
+</p>
+
 <h1 align="center">Dogfight</h1>
 
 <p align="center">
@@ -113,3 +117,5 @@ Worker 名称为 `dogfight`，自定义域名在 `wrangler.jsonc`。备用地址
 ## License
 
 [MIT](LICENSE) © 2026
+
+Logo assets and usage: [guide](docs/01-logo-usage.md) · [identity study](https://hexly.ai/logos/dogfight).

@@ -1,0 +1,34 @@
+{
+	"project": "dogfight",
+	"series": "material",
+	"study": "2026-09-07-01",
+	"finishing": "02",
+	"archive": "https://github.com/nocoo/hexly.ai/tree/main/artwork/logo-family/dogfight/2026-09-07-01",
+	"review": "https://hexly.ai/logos/dogfight",
+	"masters": {
+		"logo.png": {
+			"sha256": "274611f248e476334769d4c4c670a1dbd0d20263fc1d210b665b2fb7b9867fc4",
+			"source": "artwork/logo-family/dogfight/2026-09-07-01/finishing/02/exports/dogfight-transparent-2048.png",
+			"width": 2048,
+			"height": 2048
+		},
+		"assets/brand/icon.png": {
+			"sha256": "563fd7813ab388b223d8c464362c620b73c76fd0763977ba23419654262cba3b",
+			"source": "artwork/logo-family/dogfight/2026-09-07-01/finishing/02/exports/dogfight-icon-2048.png",
+			"width": 2048,
+			"height": 2048
+		},
+		"assets/brand/icon-rounded.png": {
+			"sha256": "9ad636bee5d2e0ed87ad0e346c5a0ac9dec1d689c39d752c55033b07a2e85e0f",
+			"source": "artwork/logo-family/dogfight/2026-09-07-01/finishing/02/exports/dogfight-rounded-2048.png",
+			"width": 2048,
+			"height": 2048
+		},
+		"assets/brand/background.png": {
+			"sha256": "36ae7809581d256eb7e35e44e7a475a75405a5e7d75b83c7bf1abf2b4afe693a",
+			"source": "artwork/logo-family/dogfight/2026-09-07-01/finishing/02/background.png",
+			"width": 2048,
+			"height": 2048
+		}
+	}
+}

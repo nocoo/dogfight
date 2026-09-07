@@ -1,0 +1,76 @@
+{
+  "source": "logo.png",
+  "files": [
+    {
+      "path": "public/logo-24.png",
+      "role": "transparent",
+      "size": 24,
+      "sha256": "78fc3df7e7fe497c6f92a0bfa46fd59cc93c9b55b7b52ab87322f6fa79c48aa9"
+    },
+    {
+      "path": "public/logo-32.png",
+      "role": "transparent",
+      "size": 32,
+      "sha256": "2092ea38fcea7819fd18fcd0719165f879666dbdc9a616df76fc2a9e1f55a24b"
+    },
+    {
+      "path": "public/logo-48.png",
+      "role": "transparent",
+      "size": 48,
+      "sha256": "dc80e18b6cf2eb70b1b217dd727dc5e066be196e3aa41e25b2ff8fafb34f7d82"
+    },
+    {
+      "path": "public/logo-64.png",
+      "role": "transparent",
+      "size": 64,
+      "sha256": "77f4bd50fed86192e6b33ea6c4f126aa269353744828dbb6bcae11ab0ea9597e"
+    },
+    {
+      "path": "public/logo-128.png",
+      "role": "transparent",
+      "size": 128,
+      "sha256": "ee6b686894f1193affeee689a3894bdf33b36791af63233e095ead0437e7bacf"
+    },
+    {
+      "path": "public/logo-192.png",
+      "role": "transparent",
+      "size": 192,
+      "sha256": "13548905b17d72d97248a1112e93f884d56a1fc1c3c98194c9c63641977e6b4a"
+    },
+    {
+      "path": "public/logo-256.png",
+      "role": "transparent",
+      "size": 256,
+      "sha256": "527522cca3f7b25dd31a7d12fa6bcfdfdda9507cc5027a9ec847470224ee595f"
+    },
+    {
+      "path": "public/logo-512.png",
+      "role": "transparent",
+      "size": 512,
+      "sha256": "da1a0fc2001d30791451cc7afe7c3d16b8492a9749273199c6dcb9ffdbe0ca26"
+    },
+    {
+      "path": "public/favicon.png",
+      "role": "transparent",
+      "size": 32,
+      "sha256": "2092ea38fcea7819fd18fcd0719165f879666dbdc9a616df76fc2a9e1f55a24b"
+    },
+    {
+      "path": "public/favicon.ico",
+      "role": "transparent",
+      "sha256": "9053ea2eaa7289b4bc48808f06c3e664cc53714db5d9a2f374334d5c326ac985"
+    },
+    {
+      "path": "public/apple-touch-icon.png",
+      "role": "platform-tile",
+      "size": 180,
+      "sha256": "12821fdb29d765436aec9b11fed65ed5aaf8e5de65b6ff2b88d8f3a03be741b7"
+    },
+    {
+      "path": "public/favicon.svg",
+      "role": "transparent",
+      "size": 128,
+      "sha256": "caf68a230da4d910ff8ef4f9760afc3181751c52b06bd9132630c82359b46ae8"
+    }
+  ]
+}
