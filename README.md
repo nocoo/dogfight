@@ -4,118 +4,119 @@
 
 <h1 align="center">Dogfight</h1>
 
+<p align="center">驾驶 F-22 对抗 Su-35，在浏览器中完成一场街机空战。</p>
+
 <p align="center">
-  <strong>浏览器里的 3D 空战</strong><br>
-  驾驶 F-22 · 对阵 Su-35 · 街机飞行
+  <a href="https://dogfight.hexly.ai">站点</a> ·
+  <a href="docs/README.en.md">English</a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/TypeScript-5-blue?logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=black" alt="React 19" />
-  <img src="https://img.shields.io/badge/Three.js-0.180-000000?logo=threedotjs&logoColor=white" alt="Three.js" />
-  <img src="https://img.shields.io/badge/Vite-6-646cff?logo=vite&logoColor=white" alt="Vite" />
-  <img src="https://img.shields.io/badge/Cloudflare-Workers-f38020?logo=cloudflare&logoColor=white" alt="Cloudflare Workers" />
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
+  <img src="preview.jpg" width="720" alt="Dogfight — AETHER 空战界面" />
 </p>
-
-<p align="center">
-  <a href="https://dogfight.hexly.ai"><img src="preview.jpg" width="720" alt="Dogfight — AETHER 霁蓝边界" /></a>
-</p>
-
----
 
 ## 这是什么
 
-Dogfight 是一款可直接游玩的 3D 空战游戏，产品名 **AETHER · 霁蓝边界**。玩家固定驾驶 F-22，对抗三架 Su-35，从空中交战开始，没有起飞或降落阶段。
+Dogfight 是一款浏览器 3D 空战游戏，界面使用 AETHER 名称。玩家固定驾驶 F-22，从空中交战开始，对抗三架 Su-35；全部击落即获胜，机体损失或撞击地形则任务失败。
 
-**核心思路**：街机手感优先于拟真飞行，锁定、导弹、机炮和干扰都围绕一场完整战役设计。
-
-线上：https://dogfight.hexly.ai
+飞行、锁定、导弹、机炮与干扰围绕一场街机任务设计，不模拟起降或真实航空系统。游戏在浏览器内运行，当前没有多人联机或账号服务。
 
 ## 功能
 
-- **街机空战** — 固定子步长的独立战斗模拟，三架敌机全部击落即胜利
-- **武器系统** — AIM-120C 导弹锁定、无限机炮（过热）、热焰干扰
-- **程序化世界** — F-22 / Su-35 机体、地形、云层、水面与战斗音效均本地生成
-- **多端操作** — 键盘、鼠标、触屏方向键，支持横屏；切走标签页自动暂停
+- 通过俯仰、转向、加力与减速追击敌机，HUD 显示速度、高度、机体状态、目标和来袭导弹。
+- 使用 AIM-120C 导弹锁定目标，发射带过热限制的无限机炮，并释放热焰干扰来袭导弹。
+- 在程序化生成的 F-22 / Su-35 机体、地形、水面和云层之间交战，配合 Web Audio 合成音效。
+- 使用键盘、可选鼠标操纵或触屏方向键，支持横屏、全屏、反转俯仰、鼠标灵敏度与两档画质。
+- 切换标签页或打开设置时暂停，任务结束后查看得分并重新出击。
 
-## 操作
+胜利后的最高得分保存在当前浏览器 localStorage。当前任务与操作设置保存在内存，刷新页面不会续接战斗；最高分也不会跨浏览器或设备同步。
 
-| 按键 | 操作 |
+## 使用
+
+在支持 WebGL 2 的现代浏览器中打开[游戏](https://dogfight.hexly.ai)，点击「进入空域」。机体、场景与音效不依赖外部 3D 模型服务。
+
+| 操作 | 按键 |
 | --- | --- |
-| W / S、↑ / ↓ | 上仰 / 俯冲 |
-| A / D、← / → | 左转 / 右转 |
-| Shift | 按住加力 |
-| C | 按住减速 |
-| Space | 按住发射机炮 |
-| Enter | 发射导弹 |
-| Q | 切换目标 |
-| F | 释放热焰干扰 |
-| Esc / P | 暂停 / 继续 |
+| 上仰 / 俯冲 | W / S、↑ / ↓ |
+| 左转 / 右转 | A / D、← / → |
+| 加力 / 减速 | 按住 Shift / C |
+| 发射机炮 | 按住 Space |
+| 发射导弹 | Enter |
+| 切换目标 | Q |
+| 释放热焰干扰 | F |
+| 暂停 / 继续 | Esc / P |
 
-目标在前方 21° 锥角与 3.6 km 内持续约 1.1 秒即可锁定。每架敌机需要两枚导弹；1.7 km 内机炮提供轻度瞄准辅助。机体损伤超限或撞击地形则任务失败。
+目标与机头方向夹角小于 21°、距离小于 3.6 km，持续约 1.1 秒即可锁定。两枚导弹可击落一架满血敌机；1.7 km 内机炮有轻度瞄准辅助。这些是游戏规则，数值定义见[战斗模拟](src/game/simulation.ts)。
 
-也可点击敌机标记 / 目标列表选择目标，点击武器卡发射导弹。设置中可启用鼠标操纵、反转俯仰和调整渲染质量。
-
-## 项目结构
-
-```text
-src/
-  App.tsx                 # 界面、设置、暂停与战役流程
-  main.tsx                # 入口
-  styles.css              # HUD 与响应式布局
-  game/
-    simulation.ts         # 飞行、制导、武器、胜负
-    engine.ts             # 渲染循环与输入
-    aircraft.ts           # F-22 / Su-35 程序化机体
-    world.ts              # 地形、水面
-    clouds.ts             # 云层
-    audio.ts              # Web Audio 合成音效
-    types.ts              # 输入与战斗状态
-scripts/
-  browser-smoke.mjs       # 真实键盘走完一场战役
-```
-
-## 技术栈
-
-| 层 | 技术 |
-| --- | --- |
-| 语言 | [TypeScript](https://www.typescriptlang.org/) |
-| 界面 | [React 19](https://react.dev/) |
-| 渲染 | [Three.js](https://threejs.org/) |
-| 构建 | [Vite 6](https://vite.dev/) |
-| 发布 | [Cloudflare Workers](https://developers.cloudflare.com/workers/) 静态资源 |
-
-需要支持 WebGL 2 的现代浏览器。资源不依赖外部 3D 模型服务。最高得分保存在当前浏览器本地。
+也可点击敌机标记或目标列表选择目标，点击武器卡发射导弹。设置中开启鼠标操纵后，键盘仍然可用；性能不足时可选择「流畅」画质。
 
 ## 开发
 
+推荐 Node.js 22 与 npm，或使用仓库 CI 的 Bun 1.4.0。以下命令使用已提交的 npm lockfile。
+
 ```bash
-npm install
-npm run dev       # 本地开发，点击「进入空域」
-npm run build     # TypeScript 检查与生产构建
-npm test          # 飞行、制导、武器、胜负与重置
+git clone https://github.com/nocoo/dogfight.git
+cd dogfight
+npm ci
+npm run dev
+```
+
+Vite 默认使用 5173；端口占用时访问终端显示的实际地址，也可通过 `npm run dev -- --port 5174` 指定端口。应用运行不需要 API 密钥或数据库。
+
+```bash
+npm run typecheck
+npm run build
 npm run preview
 ```
 
-开发服务器启动后可运行 `npm run test:browser`，用真实键盘自动完成完整战役。脚本优先使用 macOS 上的 Google Chrome；其他环境先运行 `npx playwright install chromium`。截图写入 `test-results/`。
+构建结果位于 `dist/`，可交给静态站点服务器。当前站点使用 Cloudflare Workers Static Assets，域名与资源目录见 [wrangler.jsonc](wrangler.jsonc)。
 
-```bash
-npm run build
-wrangler deploy --no-autoconfig
-```
-
-Worker 名称为 `dogfight`，自定义域名在 `wrangler.jsonc`。备用地址：https://dogfight.nocoo.workers.dev
+| 路径 | 内容 |
+| --- | --- |
+| `src/App.tsx`、`src/styles.css` | HUD、设置、暂停与任务流程 |
+| `src/game/simulation.ts` | 独立飞行、制导、武器与胜负逻辑 |
+| `src/game/engine.ts` | 输入与渲染循环 |
+| `src/game/aircraft.ts`、`world.ts`、`clouds.ts` | 程序化机体和环境 |
+| `src/game/audio.ts` | 合成音效 |
+| `scripts/browser-smoke.mjs` | 通过 HUD 与键盘完成战役的浏览器脚本 |
 
 ## 测试
 
-| 层 | 内容 | 触发时机 |
-| --- | --- | --- |
-| 单元 | 飞行、锁定、导弹、干扰、机炮过热、胜负、地形撞击 | `npm test` |
-| 浏览器 | 键盘走完一场战役，校验桌面 / 触屏 / 横屏 | `npm run test:browser` |
+```bash
+npm test
+```
 
-## License
+Vitest 验证飞行、锁定、导弹、干扰、机炮过热、胜负与重置，不需要启动开发服务器。
 
-[MIT](LICENSE) © 2026
+浏览器流程需先在另一个终端运行 `npm run dev`，再执行：
 
-Logo assets and usage: [guide](docs/01-logo-usage.md) · [identity study](https://hexly.ai/logos/dogfight).
+```bash
+npx playwright install chromium
+AETHER_TEST_URL=http://localhost:5173 npm run test:browser
+```
+
+将 `AETHER_TEST_URL` 改为当前本地服务地址。脚本不会启动服务器，在 macOS 优先使用已安装的 Google Chrome，否则使用 Playwright Chromium。它执行桌面完整战役、暂停与设置、手机触控和横屏检查，截图写入 `test-results/`。当前 CI 运行构建与单元测试，浏览器脚本需单独运行；没有服务端 API 测试层。
+
+## 技术栈
+
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-149ECA?logo=react&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-000000?logo=threedotjs&logoColor=white)
+![Cloudflare Workers](https://img.shields.io/badge/Cloudflare_Workers-F38020?logo=cloudflare&logoColor=white)
+
+| 部分 | 实现 |
+| --- | --- |
+| 游戏与 HUD | TypeScript、React、CSS、Lucide |
+| 三维与音频 | Three.js、WebGL 2、Web Audio |
+| 本地得分 | localStorage |
+| 构建与托管 | Vite、Cloudflare Workers Static Assets |
+| 测试 | Vitest、Playwright |
+
+## 文档
+
+- [Logo 使用说明](docs/01-logo-usage.md)
+- [标识设计](https://hexly.ai/logos/dogfight)
+
+## 许可证
+
+[MIT](LICENSE) © 2026 Zheng Li
