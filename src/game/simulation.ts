@@ -3,11 +3,11 @@ import type { FlightInput, GamePhase } from './types'
 
 export const FORWARD = new Vector3(0, 0, -1)
 export const UP = new Vector3(0, 1, 0)
-export const LOCK_RANGE = 3600
-export const LOCK_ANGLE = Math.cos(MathUtils.degToRad(21))
-export const LOCK_TIME = 1.1
+const LOCK_RANGE = 3600
+const LOCK_ANGLE = Math.cos(MathUtils.degToRad(21))
+const LOCK_TIME = 1.1
 
-export interface Enemy {
+interface Enemy {
   id: number
   name: string
   position: Vector3
@@ -17,7 +17,7 @@ export interface Enemy {
   roll: number
 }
 
-export interface Missile {
+interface Missile {
   id: number
   position: Vector3
   previous: Vector3
@@ -28,7 +28,7 @@ export interface Missile {
   confused: boolean
 }
 
-export interface Bullet {
+interface Bullet {
   id: number
   position: Vector3
   previous: Vector3
