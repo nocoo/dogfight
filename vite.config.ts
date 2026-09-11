@@ -16,7 +16,7 @@ function apiLivePlugin(): Plugin {
       })
     },
     generateBundle() {
-      this.emitFile({ type: 'asset', fileName: 'api/live', source: body })
+      this.emitFile({ type: 'asset', fileName: 'api/live.json', source: body })
     },
   }
 }
