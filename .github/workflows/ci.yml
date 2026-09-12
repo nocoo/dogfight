@@ -15,6 +15,7 @@ jobs:
       install-policy: "project"
       prepare-command: "bun run build"
       test-command: "bun run test"
+      coverage-path: ""
       typecheck-command: "bun run typecheck"
       lint: false
       disabled-check-reasons: |-
