@@ -39,7 +39,6 @@ export interface Bullet {
 export interface CombatEvent {
   type: 'launch' | 'gun' | 'hit' | 'kill' | 'damage' | 'flare' | 'lock' | 'incoming'
   position: Vector3
-  friendly?: boolean
 }
 
 // Shared by the landscape and collision system, so mountains have real terrain.
@@ -172,7 +171,7 @@ export class FlightSimulation {
     })
     this.missilesLeft--
     this.missileCooldown = 1.3
-    this.events.push({ type: 'launch', position: position.clone(), friendly: true })
+    this.events.push({ type: 'launch', position: position.clone() })
     this.notify('FOX THREE  ·  导弹已发射', 'info', 1.8)
     return true
   }
@@ -279,7 +278,7 @@ export class FlightSimulation {
         const pos = enemy.position.clone().addScaledVector(direction, 12)
         this.missiles.push({ id: this.nextId++, position: pos, previous: pos.clone(), direction,
           targetId: -1, friendly: false, life: 13, confused: false })
-        this.events.push({ type: 'incoming', position: pos.clone(), friendly: false })
+        this.events.push({ type: 'incoming', position: pos.clone() })
         this.notify('MISSILE ALERT  ·  导弹来袭，按 F 释放干扰', 'danger', 3)
       }
     }
