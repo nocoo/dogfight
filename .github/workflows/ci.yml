@@ -9,14 +9,13 @@ on:
 
 jobs:
   quality:
-    uses: nocoo/base-ci/.github/workflows/bun-quality.yml@b482fdee98ce1196c809ae158f116caabfc2475b  # v2026.6
+    uses: nocoo/base-ci/.github/workflows/quality.yml@3d2e9e55fdd60aa756df454ded53ef6d06d6653f
     with:
-      bun-version: "1.4.0"
-      pre-command: "bun run build"
+      runtime-version: "1.4.0"
+      install-policy: "project"
+      prepare-command: "bun run build"
       test-command: "bun run test"
       typecheck-command: "bun run typecheck"
-      lint-command: "true"
-      upload-coverage: "false"
-      enable-l2: "false"
-      enable-l3: "false"
+      lint: false
+      disabled-check-reasons: '{"lint": "project has no lint script; previous CI used a no-op lint-command"}'
     secrets: inherit
