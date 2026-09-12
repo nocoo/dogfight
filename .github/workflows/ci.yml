@@ -21,4 +21,3 @@ jobs:
         {
           "lint": "project has no lint script; previous CI used a no-op lint-command"
         }
-    secrets: inherit
