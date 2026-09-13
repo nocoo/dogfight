@@ -302,7 +302,7 @@ export class FlightEngine {
     this.onSnapshot({
       phase: sim.phase, speed: Math.round(sim.speed * 3.6), altitude: Math.round(sim.position.y),
       heading: (Math.round(-sim.heading * 180 / Math.PI) % 360 + 360) % 360,
-      pitch: sim.pitch * 180 / Math.PI, roll: sim.roll * 180 / Math.PI,
+      roll: sim.roll * 180 / Math.PI,
       aimX: (aim.x + 1) * 50, aimY: (1 - aim.y) * 50,
       health: sim.health, missiles: sim.missilesLeft, flares: sim.flaresLeft,
       flareCooldown: sim.flareCooldown, gunHeat: sim.gunHeat, overheated: sim.overheated,

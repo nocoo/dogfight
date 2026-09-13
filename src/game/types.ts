@@ -28,7 +28,6 @@ export interface GameSnapshot {
   speed: number
   altitude: number
   heading: number
-  pitch: number
   roll: number
   aimX: number
   aimY: number
@@ -53,7 +52,7 @@ export interface GameSnapshot {
 }
 
 export const initialSnapshot: GameSnapshot = {
-  phase: 'ready', speed: 920, altitude: 2400, heading: 0, pitch: 0, roll: 0, aimX: 50, aimY: 47,
+  phase: 'ready', speed: 920, altitude: 2400, heading: 0, roll: 0, aimX: 50, aimY: 47,
   health: 100, missiles: 12, flares: 6, flareCooldown: 0, gunHeat: 0,
   overheated: false, missileCooldown: 0, lock: 0, selectedTarget: 0,
   targets: [], kills: 0, elapsed: 0, score: 0, boosting: false,
