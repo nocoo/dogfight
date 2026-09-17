@@ -67,10 +67,12 @@ Status: `enforced` | `planned` | `manual` | `N/A`.
 | UI path | L3 Playwright smoke | planned | `test:browser` exists; **not** in CI |
 | Types / lint | G1 0 error, 0 warning | planned | CI typecheck; `lint: false`; no husky |
 | Deps / secrets | G2 osv-scanner + gitleaks | enforced | quality.yml default `security: true` |
-| Test isolation | D1 local Vite; never prod URL | planned | smoke defaults to :5173; `AETHER_TEST_URL` can override |
+| Test isolation | D1 local Vite :5173; SQLite marker | N/A | No database. `scripts/browser-smoke.mjs` default context. `AETHER_TEST_URL` overrides baseURL — do not point it at production |
 | Bundler output | `bun run build` | enforced | CI `prepare-command` |
 | Docs | README if controls changed | manual | human review |
 | Release | version + live HTTP 200 | enforced | `release.yml` curl `https://dogfight.hexly.ai/` |
+
+No husky. Target (unmeasured): pre-commit G1+L1 on index snapshot <30s; pre-push L2+G2 on stdin refs <3min. `--no-verify` forbidden.
 
 ## Resources / Isolation
 
@@ -79,7 +81,7 @@ Status: `enforced` | `planned` | `manual` | `N/A`.
 | Dev | 5173 Vite | local; may bind `0.0.0.0` |
 | L3 smoke | 5173 or `AETHER_TEST_URL` | local only |
 
-E2E never touches prod data stores. Do not deploy remote `-test` Workers.
+E2E never touches prod data stores. No SQLite in this static game. Do not deploy remote `-test` Workers.
 
 ## Operations / Release
 
