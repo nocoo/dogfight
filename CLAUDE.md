@@ -58,7 +58,7 @@ No lint or deploy script in package.json; release workflow runs `bun run build` 
 ## Verification
 
 Status: `enforced` | `planned` | `manual` | `N/A`.
-6DQ = L1/L2/L3 + G1/G2 + D1. Required L1 bar is four metrics each ≥ 95%.
+6DQ = L1/L2/L3 + G1/G2 + D1. Required L1 bar is statements/branches/functions/lines each ≥95%; no skipped or focused tests.
 
 | Change | Proof | Status | Evidence |
 |---|---|---|---|
@@ -67,7 +67,7 @@ Status: `enforced` | `planned` | `manual` | `N/A`.
 | UI path | L3 Playwright smoke | planned | `test:browser` exists; **not** in CI |
 | Types / lint | G1 0 error, 0 warning | planned | CI typecheck; `lint: false`; no husky |
 | Deps / secrets | G2 osv-scanner + gitleaks | enforced | quality.yml default `security: true` |
-| Test isolation | D1 local Vite :5173; SQLite marker | N/A | No database. `scripts/browser-smoke.mjs` default context. `AETHER_TEST_URL` overrides baseURL — do not point it at production |
+| Test isolation | D1 fresh browser state and a guarded local target | planned | Smoke launches a fresh browser and defaults to localhost:5173, but `AETHER_TEST_URL` accepts an unchecked remote URL. Require loopback and a test-owned server; SQLite/`_test_marker` are N/A because there is no database |
 | Bundler output | `bun run build` | enforced | CI `prepare-command` |
 | Docs | README if controls changed | manual | human review |
 | Release | version + live HTTP 200 | enforced | `release.yml` curl `https://dogfight.hexly.ai/` |
