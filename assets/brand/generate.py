@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Regenerate logo derivatives: uv run --with pillow python assets/brand/generate.py."""
-import base64
 import hashlib
 import json
 from pathlib import Path
@@ -17,11 +16,6 @@ for item in config['derivatives']:
     master=square if role=='platform-tile' else foreground
     if path.suffix=='.ico':
         foreground.save(path,format='ICO',sizes=[(s,s) for s in [16,24,32,48,64]])
-    elif path.suffix=='.svg':
-        import io
-        buffer=io.BytesIO();foreground.resize((128,128),Image.Resampling.LANCZOS).save(buffer,format='PNG')
-        data=base64.b64encode(buffer.getvalue()).decode('ascii')
-        path.write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><image width="128" height="128" href="data:image/png;base64,{data}"/></svg>\n')
     else:
         master.resize((size,size),Image.Resampling.LANCZOS).save(path)
     files.append({**item,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
