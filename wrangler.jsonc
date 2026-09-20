@@ -1,9 +1,10 @@
 {
   "name": "dogfight",
+  "preview_urls": false,
   "account_id": "d51a8fde361e4be31db17d8c56737c1f",
   "compatibility_date": "2026-09-05",
   "main": "worker.js",
-  "workers_dev": true,
+  "workers_dev": false,
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
