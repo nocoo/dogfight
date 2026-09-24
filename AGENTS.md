@@ -43,7 +43,7 @@ Statuses: `enforced` | `planned` | `manual` | `N/A`.
 | Dimension | Required proof | Status | Evidence |
 |---|---|---|---|
 | L1 pre-commit quality | Four coverage metrics ≥ 95%, no skipped/focused tests, strict types and check-only lint with zero errors/warnings | planned | CI `bun run test` with `coverage-path: ""`; no thresholds in `vite.config.ts`; CI typecheck; `lint: false` with documented reason (no lint script); no husky installed |
-| L2 API | Real HTTP | N/A | no application API beyond static `/api/live` |
+| L2 API | Real HTTP | planned | `worker.js` rewrites `/api/live` → `/api/live.json`, delegates to `env.ASSETS.fetch`, propagates status and sets `Content-Type: application/json` + `Cache-Control: no-store`; no local HTTP L2 runner verifies this contract. Business CRUD remains N/A — no application API beyond the health route |
 | L3 UI path | Playwright smoke | planned | `test:browser` exists; **not** in CI |
 | G2 security | osv-scanner + gitleaks | enforced | quality.yml default `security: true` |
 | D1 isolation | Fresh browser state and a guarded local target | planned | Smoke launches a fresh browser and defaults to localhost:5173, but `AETHER_TEST_URL` accepts an unchecked remote URL. Require loopback and a test-owned server; SQLite/`_test_marker` are N/A because there is no database |
